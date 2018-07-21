@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function() {
+	echo 'testing testing';
+});
+
 //route for verification
 Route::get("/deeeeeym", "DeeeeeymController@receive")->middleware("verify");
 

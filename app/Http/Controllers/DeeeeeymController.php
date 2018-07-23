@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class DeeeeeymController extends Controller
 {
-    function receive()
+    function receive(Request $request)
     {
     	$data = $request->all();
 

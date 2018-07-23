@@ -6,13 +6,33 @@ use Illuminate\Http\Request;
 
 class DeeeeeymController extends Controller
 {
-    private function receive()
+    function receive()
     {
     	$data = $request->all();
 
 	    //get the user’s id
 	    $id = $data["entry"][0]["messaging"][0]["sender"]["id"];
-	    $this->sendTextMessage($id, "Hello");
+
+	    $message = $data['entry'][0]['messaging'][0]['message']['text'];
+
+	    if($message == 'David Mendoza')
+	    {
+	    	$response = "David's birthday is on November 12, 1997";
+	    }
+	    else if($message == 'Ranz Dalangin')
+	    {
+	    	$response = "Ranz's birthday is on November 19, 1995";
+	    }
+	    else if($message == 'Ivan Gellangao')
+	    {
+	    	$response = "Ivan's birthday is on December 30, 1996";
+	    }
+	    else
+	    {
+	    	$response = "Pakboi si jerome";
+	    }
+
+	    $this->sendTextMessage($id, $response);
     }
 
     private function sendTextMessage($recipientId, $messageText)
